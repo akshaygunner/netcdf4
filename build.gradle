@@ -1,0 +1,34 @@
+buildscript {
+  repositories {
+	    mavenCentral()
+      flatDir {
+        dirs 'libs'
+    }
+  }
+}
+
+plugins {
+    id 'scala'
+    id 'maven'
+    id 'eclipse-wtp'
+}
+
+group 'com.aws.weather.mogreps'
+version '1.0-SNAPSHOT'
+
+
+  repositories {
+    mavenCentral()
+  }
+
+
+dependencies {
+    compile group: 'org.scala-lang', name: 'scala-library', version:'2.10.6'
+    testCompile group: 'org.scalatest', name: 'scalatest_2.10', version: '2.2.6'
+    compile(group: 'org.apache.hbase', name: 'hbase-server', version:'1.1.1')
+    compile(group: 'org.apache.spark', name: 'spark-core_2.10', version:'2.2.0')
+    compile(group: 'org.apache.spark', name: 'spark-sql_2.10', version:'2.2.0')
+    compile(group: 'org.apache.spark', name: 'spark-hive_2.10', version:'2.2.0')
+    compile(group: 'org.apache.spark', name: 'spark-mllib_2.10', version:'2.2.0')
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+}
